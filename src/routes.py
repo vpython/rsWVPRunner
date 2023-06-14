@@ -38,6 +38,11 @@ def untrusted_static(filename):
     return flask.send_from_directory('../untrusted', filename)
 
 
+@app.route('/check_trusted')
+def check_trusted():
+    return f"trusted_host = '{os.environ.get('TRUSTED_HOST', 'not set')}'"
+
+
 @app.route('/')
 @app.route('/index')
 def root():
