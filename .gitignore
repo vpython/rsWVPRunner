@@ -1,0 +1,9 @@
+*.pyc
+*.pyo
+*.pyd
+__pycache__
+.pytest_cache
+svc_acct_cred.json
+*~
+/venv
+
