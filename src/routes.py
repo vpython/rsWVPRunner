@@ -4,6 +4,8 @@ import flask
 
 from . import app
 
+import os
+
 
 @app.route('/css/<path:filename>')
 def css_static(filename):
@@ -24,6 +26,11 @@ def package_static(filename):
 @app.route(r'/favicon.ico')
 def favicon_static():
     return flask.send_from_directory('../static/images', r'favicon.ico')
+
+
+@app.route('/untrusted/run.html')
+def run():
+    return flask.render_template("run.html", trusted_host=os.environ.get('TRUSTED_HOST', 'localhost:5173'))
 
 
 @app.route('/untrusted/<path:filename>')

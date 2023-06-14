@@ -32,6 +32,8 @@ RUN chown -R pyuser:pyuser $APP_HOME
 
 USER pyuser
 
+ENV TRUSTED_HOST="http://localhost:5173"
+
 # Run the web service on container startup. Here we use the gunicorn
 # webserver, with one worker process and 8 threads.
 # For environments with multiple CPU cores, increase the number of workers

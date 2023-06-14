@@ -1,27 +1,9 @@
 // IDE functionality
 // This file has to handle ALL versions of GlowScript.
 
-var localport = '5173'
-var localhost = 'localhost:' + localport;
-var weblocs = [
-    /^https:\/\/glowscript\.org$/, // put a couple of these explicitly in the list just in case.
-    /^https:\/\/www\.glowscript\.org$/,
-    /^https:\/\/devbasherwo\.org$/, // put a couple of these explicitly in the list just in case.
-    /^https:\/\/www\.devbasherwo\.org$/,
-    new RegExp("^http:\/\/" + localhost + "$"),
-    /^https:\/\/HOST_NAME_TEMPLATE$/
-]
-
-function checkTrustedHosts(aHost) {
-  // go through the known trusted hosts
-  let found = false
+function checkTrustedHost(aHost) {
   //console.log("checking trusted hosts as:", aHost)
-  for (let i = 0; i < weblocs.length; i++) {
-    found = aHost.match(weblocs[i])
-    if (found) {
-      break
-    }
-  }
+  found = aHost.match(trusted_host)
   //console.log("Found =" + found)
   return !found // return true to bail out.
 }
@@ -199,7 +181,7 @@ function ideRun() {
             // trusted_origin = trimhost
             //console.log("in iFrame: receivedMessage from: " + event.origin)
             //console.log("Setting trusted_origin:" + trusted_origin)
-            if (checkTrustedHosts(event.origin)) {
+            if (checkTrustedHost(event.origin)) {
                 // ensure that message is from glowscript
                 //console.log("rejecting origin!")
                 return
