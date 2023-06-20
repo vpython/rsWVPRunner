@@ -6,4 +6,4 @@ __pycache__
 svc_acct_cred.json
 *~
 /venv
-
+.DS_Store
