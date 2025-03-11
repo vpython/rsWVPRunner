@@ -7,3 +7,7 @@ The runner can send results, errors, and screen grabs to the host window postMes
 You must configure the "trusted host" environment variable on the deployed system to match the root URL of the host using this runner.
 
 Because this is a static deployment, you need to configure the trusted host in the /untrusted/run.html file.
+
+You can copy `sample.run.html` to `run.html` and edit the embedded javascript to set the `trusted_host` variable.
+
+To run a simple web server in a code space use "bash -v serve.sh"
