@@ -11,3 +11,8 @@ Because this is a static deployment, you need to configure the trusted host in t
 You can copy `sample.run.html` to `run.html` and edit the embedded javascript to set the `trusted_host` variable.
 
 To run a simple web server in a code space use "bash -v serve.sh"
+
+Copy individual files to cloud storage, e.g.,
+
+ gsutil cp package/glow.3.2.min.js gs://rswvprunner/rsWVPRunner/package/glow.3.2.min.js
+
