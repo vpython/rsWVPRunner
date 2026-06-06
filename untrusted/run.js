@@ -3,9 +3,7 @@
 
 function checkTrustedHost(aHost) {
   //console.log("checking trusted hosts as:", aHost)
-  found = aHost.match(trusted_host)
-  //console.log("Found =" + found)
-  return !found // return true to bail out.
+  return !trusted_host.includes(aHost) // return true to bail out
 }
 
 window.glowscript_libraries = { // used for unpackaged (X.Ydev) version

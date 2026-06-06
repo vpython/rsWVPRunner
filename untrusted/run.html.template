@@ -9,7 +9,7 @@
 <script type="text/javascript" src="../lib/head.js/head.min.js"></script>
 
 <script type="text/javascript">
-  window.trusted_host = "TRUSTED_HOST_TEMPLATE";
+  window.trusted_host = "TRUSTED_HOST_TEMPLATE".split(',').map(function(s){return s.trim();});
 </script>
 
 </head>
