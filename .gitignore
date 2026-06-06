@@ -10,3 +10,4 @@ svc_acct_cred.json
 /untrusted/run.html
 /deploy/
 /build.env
+config.json

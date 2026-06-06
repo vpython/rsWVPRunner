@@ -12,5 +12,6 @@
 
 FLASK_HOST=${FLASK_HOST:-"http://localhost:8080"}
 sed "s|TRUSTED_HOST_TEMPLATE|$FLASK_HOST|g" untrusted/run.html.template > untrusted/run.html
+echo "{\"FLASK_HOST\": \"$FLASK_HOST\"}" > config.json
 echo "Serving rsWVPRunner on port 8090 (trusted host: $FLASK_HOST)"
 python3 -m http.server 8090 --bind 0.0.0.0
