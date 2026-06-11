@@ -11,3 +11,4 @@ svc_acct_cred.json
 /deploy/
 /build.env
 config.json
+/build-tools/
