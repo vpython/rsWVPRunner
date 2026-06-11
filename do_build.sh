@@ -21,6 +21,10 @@ rm -rf deploy/deploy deploy/.git
 # Generate run.html from template
 sed "s|TRUSTED_HOST_TEMPLATE|$TRUSTED_HOST|g" deploy/untrusted/run.html.template > deploy/untrusted/run.html
 
+# Stamp today's date into run.js for cache-busting
+BUILD_DATE=$(date +%Y%m%d%H%M)
+sed -i '' "s|PACKAGE_BUILD_TEMPLATE|$BUILD_DATE|g" deploy/untrusted/run.js
+
 # Upload to GCS
 echo "Uploading to $BUCKET..."
 gsutil -m cp -r deploy/* $BUCKET/

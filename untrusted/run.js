@@ -1,6 +1,8 @@
 // IDE functionality
 // This file has to handle ALL versions of GlowScript.
 
+var PACKAGE_BUILD = "PACKAGE_BUILD_TEMPLATE" // replaced by do_build.sh with today's date
+
 function checkTrustedHost(aHost) {
   //console.log("checking trusted hosts as:", aHost)
   return !trusted_host.includes(aHost) // return true to bail out
@@ -226,13 +228,13 @@ function ideRun() {
                     	packages.push.apply(packages, glowscript_libraries.RScompile)
                     } else packages.push.apply(packages, glowscript_libraries.compile)
                 } else {
-                    packages.push("../package/glow." + message.version + ".min.js")
+                    packages.push("../package/glow." + message.version + ".min.js?v=" + PACKAGE_BUILD)
                     if (ver >= 1.1 && (message.lang == 'rapydscript' || message.lang == 'vpython')) {
-                        packages.push("../package/RScompiler." + message.version + ".min.js")
+                        packages.push("../package/RScompiler." + message.version + ".min.js?v=" + PACKAGE_BUILD)
                         // After version 2.2, the RS runtime library was included in the RS compiler:
-                        if (ver < 2.3) packages.push("../package/RSrun." + message.version + ".min.js")
+                        if (ver < 2.3) packages.push("../package/RSrun." + message.version + ".min.js?v=" + PACKAGE_BUILD)
                     } else
-                 	    packages.push("../package/compiler." + message.version + ".min.js")
+                 	    packages.push("../package/compiler." + message.version + ".min.js?v=" + PACKAGE_BUILD)
                 }
                 
                 head.load(packages, function() {
