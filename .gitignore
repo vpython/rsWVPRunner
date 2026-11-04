@@ -12,3 +12,8 @@ svc_acct_cred.json
 /build.env
 config.json
 /build-tools/
+
+# Never commit credentials.
+.env
+.env.*
+*.pem
